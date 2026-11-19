@@ -1,23 +1,36 @@
 import { createRoot } from "react-dom/client";
+import { useState } from 'react';
 
-function App() {
+function Score({ name }: { name: string }) {
+  const [score, Countscore] = useState(100);
+
+  function IncreaseScore(amount: number){
+    Countscore(score + amount);
+  }
   return (
     <div>
-      <p>สวัสดีครับ ผมกำลังเรียน React และ TypeScript</p>
+      <h2>{name}</h2>
+      <p>คะแนน: {score} </p>
+      <button onClick={() => IncreaseScore(5)}>
+        เพิ่มคะแนน
+      </button>
+    </div>
+  )
+}
 
-      <h2>สิ่งที่ผมชอบ</h2>
-      <ul>
-        <li>เขียนโปรแกรม</li>
-        <li>ฟังเพลง</li>
-        <li>เล่นเกม</li>
-      </ul>
+function App() {
+
+  return (
+    <div>
+      <Score name="สมชาย" />
+      <Score name="สมหญิง" />
     </div>
   );
 }
+export { App };
 
 const rootElement = document.getElementById("root");
 
-if(rootElement)
-{
-    createRoot(rootElement).render(<App />);
+if (rootElement) {
+  createRoot(rootElement).render(<App />);
 }
