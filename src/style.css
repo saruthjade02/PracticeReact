@@ -1,0 +1,9 @@
+#summary {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+#transaction-name {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
